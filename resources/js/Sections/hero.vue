@@ -20,7 +20,7 @@ import CTAbutton from '../Components/CTAbutton.vue';
         <!-- IMAGE -->
           <div class="w-full md:w-1/2 mt-24 md:mt-0">
             <div class="h-64 border-2 border-solid border-red-500 flex items-center justify-center">
-                <img src="../../assets/images/heroimg.svg" alt="Logo">
+                <img src="../../assets/images/heroimg.svg" alt="">
             </div>
           </div>
 
