@@ -83,10 +83,9 @@
               <img class="md:h-40" src="../../assets/images/webdev.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black lg:mt-10">Web Development</h3>
-            <p class="font-hind text-black leading-relaxed lg:px-8 xl:text-lg xl:leading-loose">We create stunning websites with HTML5, CSS3, JavaScript,
-              React,
-              and Angular. Our services include responsive design, seamless API integrations, and robust
-              backend solutions for top-notch performance.</p>
+            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">
+              We create stunning websites with HTML5, CSS3, JavaScript, React, and Angular. Our services 
+              include responsive design, API integrations, and robust backend solutions.</p>
           </div>
 
           <!-- MOBILEDEV -->
@@ -95,10 +94,7 @@
               <img class="md:h-40" src="../../assets/images/mobiledev.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black">Mobile Development</h3>
-            <p class="font-hind text-black leading-relaxed lg:px-8 xl:text-lg xl:leading-loose">We specialize in native and cross-platform mobile app
-              development, using
-              technologies like Swift, Kotlin, and Flutter. Our services are tailored to meet your specific needs with
-              precision and excellence.</p>
+            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">We specialize in native and cross-platform mobile app development using Swift, Kotlin, and Flutter. Our services are tailored to meet your specific needs with excellence.</p>
           </div>
 
           <!-- PROJMA -->
@@ -107,10 +103,7 @@
               <img class="md:h-40" src="../../assets/images/projmanager.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black">Project Management</h3>
-            <p class="font-hind text-black leading-relaxed lg:px-8 xl:text-lg xl:leading-loose">We provide expert project management to keep your
-              initiatives on track and
-              successful. Our approach ensures clear communication, efficient resource allocation, and timely delivery
-              of milestones, guaranteeing your project's success.</p>
+            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">We provide expert project management to keep your initiatives on track. Our approach ensures clear communication, efficient resource allocation, and timely delivery, guaranteeing project success.</p>
           </div>
 
         </div>

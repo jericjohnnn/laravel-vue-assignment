@@ -24,7 +24,7 @@ function scrollToSection(sectionId) {
 
       <!-- MENU(Mobile) -->
       <button @click="toggleMenu" class="md:hidden">
-        <svg class="w-10 h-10 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
@@ -43,11 +43,11 @@ function scrollToSection(sectionId) {
       >
         <div class="flex flex-col h-full justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
           <a @click.prevent="scrollToSection('home')" href="#Home"
-            class="block py-2 px-4 md:p-0 text-blue font-medium font-montserrat lg:text-lg">Home</a>
+            class="block py-2 px-4 md:p-0 text-black font-medium font-montserrat lg:text-lg">Home</a>
           <a @click.prevent="scrollToSection('services')" href="#Services"
-            class="block py-2 px-4 md:p-0 text-blue font-medium font-montserrat lg:text-lg">Services</a>
+            class="block py-2 px-4 md:p-0 text-black font-medium font-montserrat lg:text-lg">Services</a>
           <a @click.prevent="scrollToSection('contact')" href="#Contact"
-            class="block py-2 px-4 md:p-0 text-blue font-medium font-montserrat lg:text-lg">Contact</a>
+            class="block py-2 px-4 md:p-0 text-black font-medium font-montserrat lg:text-lg">Contact</a>
         </div>
       </div>
     </div>

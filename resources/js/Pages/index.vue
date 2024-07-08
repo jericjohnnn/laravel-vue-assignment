@@ -9,6 +9,9 @@ import Footer from "../Sections/Footer.vue";
 </script>
 
 <template>
+  <head>
+    <title>AscendDevs</title>
+  </head>
   <main class="relative">
     <navbar />
     <hero />
