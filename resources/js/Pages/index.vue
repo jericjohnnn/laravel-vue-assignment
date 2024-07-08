@@ -9,12 +9,11 @@ import Footer from "../Sections/Footer.vue";
 </script>
 
 <template>
-  <main class="min-h-screen">
-    <navbar/>
-    <hero/>
-    <services></services>
-    <contact></contact>
-    <Footer/>
+  <main class="relative">
+    <navbar />
+    <hero />
+    <services />
+    <contact />
+    <Footer />
   </main>
 </template>
-

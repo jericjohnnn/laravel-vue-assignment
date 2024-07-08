@@ -9,6 +9,8 @@ export default {
     extend: {
       borderRadius: {
         '6xl': '2.5rem',
+        '7xl': '3rem',
+        '8xl': '4rem',
       },
       colors: {
         'blue': '#25BEF5',
@@ -19,7 +21,9 @@ export default {
       },
       backgroundImage: {
         'herobg': "url('/resources/assets/images/herobg.svg')", 
-        'servicesbg': "url('/resources/assets/images/servicesbg.svg')", 
+        'servicesbgmobile': "url('/resources/assets/images/servicesbgmobile.svg')", 
+        'servicesbgweb': "url('/resources/assets/images/servicesbgweb.svg')", 
+        'contactbg': "url('/resources/assets/images/contactbg.svg')", 
       },
       fontFamily: {
         'montserrat': "'Montserrat', sans-serif", 
