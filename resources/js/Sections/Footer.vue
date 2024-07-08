@@ -1,6 +1,4 @@
 <template>
-    <!-- Footer -->
-    
     <footer class="absolute bottom-0 left-0 right-0 pb-5 text-black z-10">
       <div class="flex justify-center mt-2 px-4">
         <div class="h-px w-full mb-5 bg-black rounded"></div> <!-- UNDERLINE -->

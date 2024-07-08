@@ -1,7 +1,6 @@
 <script setup>
 </script>
 <template>
-  <!-- What We Do Section -->
   <section
     class="shadow-[0_20px_30px_20px_rgba(0,0,0,0.02)] md:py-20 lg:py-36
      bg-white bg-servicesbgmobile md:bg-servicesbgweb  bg-cover bg-top rounded-6xl md:rounded-7xl lg:rounded-8xl -translate-y-10 overflow-x-clip z-10 relative"
@@ -16,10 +15,8 @@
       <div class="container mx-auto px-4 lg:px-10">
         <div class="flex px-8 md:px-0 flex-wrap-reverse justify-center">
           <div class="w-full md:w-1/2 relative flex justify-center lg:justify-start lg:items-center">
-            <!-- Image placeholder -->
             <div class="flex justify-center lg:justify-start ">
               <img class="sm:w-5/6 md:w-full lg:w-5/6" src="../../assets/images/team.svg" alt="">
-              <!-- Replace with actual image of people in a meeting -->
             </div>
             <div class="absolute top-0 right-0 w-1/2 -translate-y-5 translate-x-10 
             sm:translate-x-16 md:translate-y-10 md:translate-x-10 lg:translate-y-7 lg:translate-x-0
@@ -27,7 +24,6 @@
               <img src="../../assets/images/teamcloud.svg" alt="">
             </div>
           </div>
-
 
 
 
@@ -81,7 +77,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-20 lg:mt-20 lg:mb-0">
 
-          <!-- Web Development -->
+          <!-- WEBDEV -->
           <div class="text-justify pb-10 md:pb-0">
             <div class="mb-4 flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/webdev.svg" alt="">
@@ -93,7 +89,7 @@
               backend solutions for top-notch performance.</p>
           </div>
 
-          <!-- Mobile Development -->
+          <!-- MOBILEDEV -->
           <div class="text-justify pb-10 md:pb-0">
             <div class="mb-4 flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/mobiledev.svg" alt="">
@@ -105,7 +101,7 @@
               precision and excellence.</p>
           </div>
 
-          <!-- Project Management -->
+          <!-- PROJMA -->
           <div class="text-justify">
             <div class="mb-4 flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/projmanager.svg" alt="">
