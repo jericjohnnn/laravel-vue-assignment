@@ -8,9 +8,9 @@
       <div class="container mx-auto px-4 ">
         <div class="flex flex-wrap-reverse justify-between items-center text-center">
           <div class="w-full md:w-auto mb-1 md:mb-0">
-            <p class="text-sm lg:text-base">Copyright © 2024 AscendDevs by JJA</p>
+            <p class="text-sm lg:text-base xl:text-lg">Copyright © 2024 AscendDevs by JJA</p>
           </div>
-          <div class="flex flex-wrap mb-3 justify-center w-full md:w-auto text-sm lg:text-base">
+          <div class="flex flex-wrap mb-3 justify-center w-full md:w-auto text-sm lg:text-base xl:text-lg">
             <a href="#" class="mx-2">All Rights Reserved</a>
             <span>| </span>
             <a href="#" class="mx-2"> Privacy Policy</a>

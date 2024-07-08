@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        '30': '7.5rem',
+      },
       borderRadius: {
         '6xl': '2.5rem',
         '7xl': '3rem',

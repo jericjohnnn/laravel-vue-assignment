@@ -12,22 +12,22 @@ import CTAbutton from '../Components/CTAbutton.vue';
               <CTAbutton class="px-12">Contact Us</CTAbutton>
 
         <!-- Social media links -->
-        <div class="flex justify-center space-x-1 mt-14">
+        <div class="flex justify-center space-x-1 xl:space-x-4 mt-14">
           <!-- Replace these placeholders with actual social media icons or SVGs -->
           <a href="https://www.facebook.com/jericjohnnn/" target="_blank" class=" flex items-center justify-center">
-            <img class="w-5/6 shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/fb.svg" alt="">
+            <img class="w-5/6 xl:w-full shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/fb.svg" alt="">
           </a>
           <a href="https://github.com/jericjohnnn" target="_blank" class=" flex items-center justify-center">
-            <img class="w-5/6 shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/github.svg" alt="">
+            <img class="w-5/6 xl:w-full shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/github.svg" alt="">
           </a>
           <a href="https://www.instagram.com/jeric_jhnnn/" target="_blank" class="  flex items-center justify-center">
-            <img class="w-5/6 shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/ig.svg" alt="">
+            <img class="w-5/6 xl:w-full shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/ig.svg" alt="">
           </a>
           <a href="https://www.linkedin.com/in/jericjohnaligato/" target="_blank" class=" flex items-center justify-center">
-            <img class="w-5/6 shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/linkedin.svg" alt="">
+            <img class="w-5/6 xl:w-full shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/linkedin.svg" alt="">
           </a>
           <a href="https://www.tiktok.com/@anthonysistilli" target="_blank" class=" flex items-center justify-center">
-            <img class="w-5/6 shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/tiktok.svg" alt="">
+            <img class="w-5/6 xl:w-full shadow-[0_0_20px_rgba(0,0,0,0.05)] rounded-full" src="../../assets/icons/tiktok.svg" alt="">
           </a>
         </div>
       </div>
