@@ -2,22 +2,23 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "postinstall": "npm run build"
+      "dev": "vite",
+      "build": "vite build",
+      "postinstall": "sh install_php.sh && npm run build"
     },
     "devDependencies": {
-        "autoprefixer": "^10.4.19",
-        "axios": "^1.6.4",
-        "laravel-vite-plugin": "^1.0",
-        "postcss": "^8.4.39",
-        "tailwindcss": "^3.4.4",
-        "vite": "^5.0"
+      "autoprefixer": "^10.4.19",
+      "axios": "^1.6.4",
+      "laravel-vite-plugin": "^1.0",
+      "postcss": "^8.4.39",
+      "tailwindcss": "^3.4.4",
+      "vite": "^5.0"
     },
     "dependencies": {
-        "@inertiajs/vue3": "^1.2.0",
-        "@vitejs/plugin-vue": "^5.0.5",
-        "@vueuse/motion": "^2.2.3",
-        "vue": "^3.4.31"
+      "@inertiajs/vue3": "^1.2.0",
+      "@vitejs/plugin-vue": "^5.0.5",
+      "@vueuse/motion": "^2.2.3",
+      "vue": "^3.4.31"
     }
-}
+  }
+  
