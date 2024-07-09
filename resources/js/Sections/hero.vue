@@ -12,7 +12,7 @@ import CTAbutton from '../Components/CTAbutton.vue';
         <!-- TEXTS -->
         <div v-motion-slide-visible-once-left
           class="w-full md:w-1/2 flex flex-col items-center justify-center md:items-start ">
-          <h1 class="font-bold text-5xl leading-tight lg:leading-snug xl:text-6xl xl:leading-snug lg:pr-30 mb-4 font-montserrat text-center md:text-start
+          <h1 class="font-bold text-5xl leading-tight lg:text-6xl lg:leading-snug xl:text-7xl xl:leading-snug lg:pr-10 xl:pr-20 mb-4 font-montserrat text-center md:text-start
             bg-clip-text text-transparent bg-gradient-to-t from-hcolorbot to-hcolortop">
             Your Idea, Our Expertise</h1>
           <p
