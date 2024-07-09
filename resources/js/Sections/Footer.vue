@@ -9,7 +9,7 @@
             <p class="text-sm lg:text-base xl:text-lg">Copyright © 2024 AscendDevs by JJA</p>
           </div>
           <div class="flex flex-wrap mb-3 justify-center w-full md:w-auto text-sm lg:text-base xl:text-lg">
-            <a href="#" class="mx-2">All Rights Reserved</a>
+            <p class="mx-2">All Rights Reserved</p>
             <span>| </span>
             <a href="#" class="mx-2"> Privacy Policy</a>
             <span>| </span>

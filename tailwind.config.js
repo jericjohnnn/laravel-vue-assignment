@@ -7,6 +7,25 @@ export default {
   ],
   theme: {
     extend: {
+      scale: {
+        '101': '1.01',
+      },
+      keyframes: {
+        'slide': {
+          '0%': { transform: 'translateX(100%)', opacity: '1' },
+          '50%': { transform: 'translateX(-50%)', opacity: '0.8' },
+          '100%': { transform: 'translateX(-200%)', opacity: '0' }
+        },
+        'slide-right': {
+          '0%': { transform: 'translateX(-100%)', opacity: '1' },
+          '50%': { transform: 'translateX(50%)', opacity: '0.8' },
+          '100%': { transform: 'translateX(200%)', opacity: '0' }
+        }
+      },
+      animation: {
+        'slide': 'slide 18s linear infinite',
+        'slide-right': 'slide-right 18s linear infinite',
+      },
       spacing: {
         '30': '7.5rem',
       },

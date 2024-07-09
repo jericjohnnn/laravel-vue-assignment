@@ -2,8 +2,8 @@
 </script>
 <template>
   <section
-    class="shadow-[0_20px_30px_20px_rgba(0,0,0,0.02)] md:py-20 lg:py-36
-     bg-white bg-servicesbgmobile md:bg-servicesbgweb  bg-cover bg-top rounded-6xl md:rounded-7xl lg:rounded-8xl -translate-y-10 overflow-x-clip z-10 relative"
+    class="shadow-[0_20px_30px_20px_rgba(0,0,0,0.02)] sm:py-5 md:py-20 lg:py-36
+     bg-white bg-servicesbgmobile md:bg-servicesbgweb  bg-cover bg-top rounded-6xl md:rounded-7xl lg:rounded-8xl -translate-y-10 overflow-x-clip lg:-translate-y-14 z-10 relative"
     id="services">
     <div class="absolute top-0 left-0 w-3/4 -translate-y-16 -translate-x-20 sm:-translate-x-52 sm:-translate-y-24
     ">
@@ -14,7 +14,7 @@
 
       <div class="container mx-auto px-4 lg:px-10">
         <div class="flex px-8 md:px-0 flex-wrap-reverse justify-center">
-          <div class="w-full md:w-1/2 relative flex justify-center lg:justify-start lg:items-center">
+          <div v-motion-pop-visible-once class="w-full md:w-1/2 relative flex justify-center lg:justify-start lg:items-center">
             <div class="flex justify-center lg:justify-start ">
               <img class="sm:w-5/6 md:w-full lg:w-5/6" src="../../assets/images/team.svg" alt="">
             </div>
@@ -28,14 +28,19 @@
 
 
 
-          <div
+          <div v-motion-pop-visible-once
             class="w-full mb-10 md:mb-0 mt-16 md:w-1/2 pl-0 md:pl-8 md:mt-0 text-justify leading-relaxed font-hind ">
             <div class="text-center md:text-start  mb-10">
+              <div class="relative">
               <h2 class="text-4xl xl:text-5xl font-bold font-montserrat  
                   bg-clip-text text-transparent bg-gradient-to-t from-hcolorbot to-hcolortop">
                 What We Do
               </h2>
-              <div class="flex justify-center md:justify-start mt-2">
+              <div class=" absolute -right-14 bottom-10 sm:right-5 sm:bottom-3 md:right-0 lg:right-20 xl:right-36">
+                <img class="w-4/6 lg:w-5/6 xl:w-full" src="../../assets/images/ascend.svg" alt="">
+              </div>
+            </div>
+              <div class="flex justify-center md:justify-start mt-2 ">
                 <div class="h-1 w-16 xl:w-20 bg-blue rounded"></div> <!-- UNDERLINE -->
               </div>
             </div>
@@ -65,7 +70,7 @@
     <div class="pt-28 pb-16 sm:pt-28 sm:pb-0 ">
 
       <!-- Our Services Section -->
-      <div class="container mx-auto px-9 md:px-auto">
+      <div v-motion-pop-visible-once class="container mx-auto px-9 md:px-auto">
 
         <!-- HEADING -->
         <h2 class="text-center text-4xl font-bold font-montserrat  xl:text-5xl 
@@ -75,35 +80,35 @@
           <div class="h-1 w-16 xl:w-20 bg-blue rounded"></div> <!-- UNDERLINE -->
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-20 lg:mt-20 lg:mb-0">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5 lg:gap-8 my-20 lg:mt-20 lg:mb-0">
 
           <!-- WEBDEV -->
-          <div class="text-justify pb-10 md:pb-0">
-            <div class="mb-4 flex items-center justify-center">
+          <div class=" text-justify border border-cyan-50 p-6 bg-white/20 backdrop-blur-[100px] rounded-2xl">
+            <div class="flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/webdev.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black lg:mt-10">Web Development</h3>
-            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">
+            <p class="font-hind text-gray-500 leading-relaxed md:px-0 lg:px-8  xl:text-lg xl:leading-loose">
               We create stunning websites with HTML5, CSS3, JavaScript, React, and Angular. Our services 
               include responsive design, API integrations, and robust backend solutions.</p>
           </div>
 
           <!-- MOBILEDEV -->
-          <div class="text-justify pb-10 md:pb-0">
-            <div class="mb-4 flex items-center justify-center">
+          <div class=" text-justify border border-cyan-50 p-6 bg-white/20 backdrop-blur-[100px] rounded-2xl">
+            <div class=" flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/mobiledev.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black">Mobile Development</h3>
-            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">We specialize in native and cross-platform mobile app development using Swift, Kotlin, and Flutter. Our services are tailored to meet your specific needs with excellence.</p>
+            <p class="font-hind text-gray-500 leading-relaxed md:px-0 lg:px-8  xl:text-lg xl:leading-loose">We specialize in native and cross-platform mobile app development using Swift, Kotlin, and Flutter. Our services are tailored to meet your specific needs with excellence.</p>
           </div>
 
           <!-- PROJMA -->
-          <div class="text-justify">
-            <div class="mb-4 flex items-center justify-center">
+          <div class=" text-justify border border-cyan-50 p-6 bg-white/20 backdrop-blur-[100px] rounded-2xl">
+            <div class=" flex items-center justify-center">
               <img class="md:h-40" src="../../assets/images/projmanager.svg" alt="">
             </div>
             <h3 class="text-2xl text-center font-bold mb-5 mt-10 font-montserrat text-black">Project Management</h3>
-            <p class="font-hind text-gray-500 leading-relaxed md:px-4 lg:px-8 xl:px-14 xl:text-lg xl:leading-loose">We provide expert project management to keep your initiatives on track. Our approach ensures clear communication, efficient resource allocation, and timely delivery, guaranteeing project success.</p>
+            <p class="font-hind text-gray-500 leading-relaxed md:px-0 lg:px-8  xl:text-lg xl:leading-loose">We offer expert project management to ensure initiative success. Our approach focuses on clear communication, efficient resource use, and timely delivery.</p>
           </div>
 
         </div>

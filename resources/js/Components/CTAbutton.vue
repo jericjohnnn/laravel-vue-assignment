@@ -1,9 +1,13 @@
 <script setup>
 </script>
 <template>
-    <button class="
-      px-9 py-2 text-lg font-bold text-blue font-montserrat lg:text-xl
-      bg-gradient-to-t from-sky-100 to-white border border-blue rounded-xl
-    "><slot></slot>
-    </button>
+  <button class="
+  relative overflow-hidden px-9 py-2 text-lg font-bold text-blue font-montserrat lg:text-xl 
+  bg-white border border-sky-300 rounded-xl shadow-md transition-all 
+  before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-blue before:transition-all before:duration-500 
+  hover:text-white hover:before:left-0 hover:before:w-full hover:border-white
+">
+  <span class="relative z-10"><slot></slot></span>
+</button>
+
 </template>
