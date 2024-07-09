@@ -4,6 +4,7 @@
 <h1>HOW TO DOWNLOAD</h1>
 <ol>
     <li>download repo or git clone<br></li>
+    <li>laravel-vue-assignment-main<br></li>
     <li>composer install<br></li>
     <li>npm install<br></li>
     <li>remove ".example" .env.example -> .env<br></li>
