@@ -36,7 +36,7 @@ import CTAbutton from '../Components/CTAbutton.vue';
         <img class="h-72 z-0" src="../../assets/images/servicescloud2.svg" alt="">
       </div>
     </div>
-    <div class="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden z-50">
       <div class="absolute left-0 bottom-10 animate-slide-right z-20">
         <img class="h-72 z-20" src="../../assets/images/servicescloud2.svg" alt="">
       </div>
