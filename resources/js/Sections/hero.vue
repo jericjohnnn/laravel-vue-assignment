@@ -1,6 +1,7 @@
 <script setup>
 import CTAbutton from '../Components/CTAbutton.vue';
 
+
 </script>
 <template>
   <section class="pt-36 pb-64 md:pt-64 md:pb-72 lg:pb-64 xl:pb-72 bg-herobg bg-cover bg-top relative overflow-hidden" id="hero">
@@ -37,5 +38,7 @@ import CTAbutton from '../Components/CTAbutton.vue';
           <img class="h-72 z-20" src="../../assets/images/servicescloud2.svg" alt="">
         </div>
       </div>
+
     </section>
+
 </template>
