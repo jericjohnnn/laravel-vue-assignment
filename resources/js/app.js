@@ -5,6 +5,16 @@ import { MotionPlugin } from '@vueuse/motion'
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 
+// VUETIFY IMPORTS
+// import 'vuetify/styles';
+// import { createVuetify } from 'vuetify';
+// import * as components from 'vuetify/components';
+// import * as directives from 'vuetify/directives';
+
+// const vuetify = createVuetify({
+//   components,
+//   directives,
+// });
 
 createInertiaApp({
   resolve: name => {
@@ -13,7 +23,8 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
-      .use(MotionPlugin)
+      // .use(vuetify) //VUETIFY
+      .use(MotionPlugin) //USEMOTION
       .use(plugin)
       .mount(el)
   },

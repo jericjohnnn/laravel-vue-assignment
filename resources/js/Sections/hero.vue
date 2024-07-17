@@ -22,7 +22,7 @@ import CTAbutton from '../Components/CTAbutton.vue';
           <CTAbutton>Let's Talk</CTAbutton>
         </div>
         <!-- IMAGE -->
-        <div v-motion-slide-visible-once-right class="w-full md:w-1/2 mt-24 sm:mt-36 md:mt-0 z-50">
+        <div v-motion-slide-visible-once-right class="w-full md:w-1/2 mt-24 sm:mt-36 md:mt-0 z-40">
           <div class="h-64  flex items-center justify-center
             md:justify-end">
             <img class="sm:w-10/12 md:w-96 lg:w-11/12 z-50" src="../../assets/images/heroimg.svg" alt="">

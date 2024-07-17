@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
 
 const isMenuOpen = ref(false);
 
@@ -18,9 +19,11 @@ function scrollToSection(sectionId) {
 
 <template>
   <nav class="absolute top-0 left-0 right-0 z-50">
-    <div class="container mx-auto px-4 md:px-0 py-6 flex justify-between items-center ">
-      <a @click.prevent="scrollToSection('hero')" href="#Contact" class="w-40 md:w-52 "><img
-          src="../../assets/images/logo.webp" alt="Logo"></a>
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+      <!-- Logo -->
+      <a @click.prevent="scrollToSection('hero')" href="#Contact" class="w-40 md:w-52">
+        <img src="../../assets/images/logo.webp" alt="Logo">
+      </a>
 
       <!-- MENU(Mobile) -->
       <button @click="toggleMenu" class="md:hidden">
@@ -34,16 +37,34 @@ function scrollToSection(sectionId) {
       <div v-if="isMenuOpen" @click="toggleMenu" class="fixed inset-0 bg-black bg-opacity-50 md:hidden"></div>
 
       <!-- NAV LIST -->
-      <div :class="{ 'translate-x-7': isMenuOpen, 'translate-x-full': !isMenuOpen }"
+      <div :class="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
         class="z-50 fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:w-auto md:bg-transparent md:shadow-none">
         <div class="flex flex-col h-full justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
           <a @click.prevent="scrollToSection('home')" href="#Home"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue  lg:transition  font-medium font-montserrat lg:text-lg">Home</a>
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Home</a>
           <a @click.prevent="scrollToSection('services')" href="#Services"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue  lg:transition font-medium font-montserrat lg:text-lg">Services</a>
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Services</a>
           <a @click.prevent="scrollToSection('contact')" href="#Contact"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue  lg:transition font-medium font-montserrat lg:text-lg">Contact</a>
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Contact</a>
+          <Link href="/blog"
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Blog</Link>
+           
+          <!-- Login/Signup options (visible only in mobile menu) -->
+          <div class="md:hidden">
+            <a @click.prevent="scrollToSection('login')" href="#Login"
+              class="block py-2 px-4 text-blue lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Login</a>
+            <a @click.prevent="scrollToSection('signup')" href="#Signup"
+              class="block py-2 px-4 text-blue lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Sign Up</a>
+          </div>
         </div>
+      </div>
+
+      <!-- NAV LOGIN/SIGNUP (Desktop) -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <Link href="/login"
+          class="text-blue lg:hover:text-black lg:transition font-medium font-montserrat lg:text-lg">Login</Link>
+        <a href="#Signup"
+          class="rounded-lg py-1 px-3 border-2 border-blue text-blue lg:hover:text-black lg:hover:border-black lg:transition font-medium font-montserrat lg:text-lg">Sign Up</a>
       </div>
     </div>
   </nav>
