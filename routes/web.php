@@ -1,17 +1,29 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::get('/', function () {
-    return Inertia::render('index');
+Route::inertia('/blog', 'blog')->name('blog');
+
+
+Route::middleware('auth')->group(function () {
+    Route::inertia('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/blog', function () {
-    return Inertia::render('blog');
-});
 
-Route::get('/login', function () {
-    return Inertia::render('login');
+
+Route::middleware('guest')->group(function () {
+    Route::inertia('/', 'index')->name('index');
+
+    Route::inertia('/register', 'Auth/register')->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+
+    Route::inertia('/login', 'Auth/login')->name('login');
+
+
+    Route::post('/login', [AuthController::class, 'login']);
+
 });

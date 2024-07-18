@@ -4,6 +4,7 @@ import '../css/app.css';
 import { MotionPlugin } from '@vueuse/motion'
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import { ZiggyVue } from '../../vendor/tightenco/ziggy'
 
 // VUETIFY IMPORTS
 // import 'vuetify/styles';
@@ -24,6 +25,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       // .use(vuetify) //VUETIFY
+      .use(ZiggyVue) //ZIGGYVUE
       .use(MotionPlugin) //USEMOTION
       .use(plugin)
       .mount(el)

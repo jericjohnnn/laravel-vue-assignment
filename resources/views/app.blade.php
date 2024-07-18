@@ -12,6 +12,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/favicon.svg') }}">
     @vite('resources/js/app.js')
     @inertiaHead
+    @routes
   </head>
   <body>
     @inertia

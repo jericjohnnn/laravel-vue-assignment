@@ -37,14 +37,14 @@ function scrollToSection(sectionId) {
       <div v-if="isMenuOpen" @click="toggleMenu" class="fixed inset-0 bg-black bg-opacity-50 md:hidden"></div>
 
       <!-- NAV LIST -->
-      <div :class="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
+      <div v-if="!$page.props.auth.user" :class="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
         class="z-50 fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:w-auto md:bg-transparent md:shadow-none">
         <div class="flex flex-col h-full justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
-          <a @click.prevent="scrollToSection('home')" href="#Home"
+          <a  @click.prevent="scrollToSection('home')" href="#Home"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Home</a>
-          <a @click.prevent="scrollToSection('services')" href="#Services"
+          <a  @click.prevent="scrollToSection('services')" href="#Services"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Services</a>
-          <a @click.prevent="scrollToSection('contact')" href="#Contact"
+          <a  @click.prevent="scrollToSection('contact')" href="#Contact"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Contact</a>
           <Link href="/blog"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Blog</Link>
@@ -59,12 +59,15 @@ function scrollToSection(sectionId) {
         </div>
       </div>
 
+      <div v-if="$page.props.auth.user">
+        <Link method="post" as="button" :href="route('logout')">Logout</Link>
+    </div>
       <!-- NAV LOGIN/SIGNUP (Desktop) -->
-      <div class="hidden md:flex space-x-4 items-center">
-        <Link href="/login"
+      <div v-else class="hidden md:flex space-x-4 items-center">
+        <Link :href="route('login')"
           class="text-blue lg:hover:text-black lg:transition font-medium font-montserrat lg:text-lg">Login</Link>
-        <a href="#Signup"
-          class="rounded-lg py-1 px-3 border-2 border-blue text-blue lg:hover:text-black lg:hover:border-black lg:transition font-medium font-montserrat lg:text-lg">Sign Up</a>
+        <Link :href="route('register')"
+          class="rounded-lg py-1 px-3 border-2 border-blue text-blue lg:hover:text-black lg:hover:border-black lg:transition font-medium font-montserrat lg:text-lg">Sign Up</Link>
       </div>
     </div>
   </nav>
