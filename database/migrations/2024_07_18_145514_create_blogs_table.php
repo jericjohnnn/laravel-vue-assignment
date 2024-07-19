@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->text('content');
             $table->timestamps();
+        
+            // Foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
