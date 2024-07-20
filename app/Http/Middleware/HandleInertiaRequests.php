@@ -39,6 +39,11 @@ class HandleInertiaRequests extends Middleware
             'auth.user' => fn () => $request->user()
                 ? $request->user()->only('id', 'name')
                 : null,
+
+            'flash' => [
+                'blogDeleted' => fn () => $request->session()->get('deleted')
+            ],
+
         ]);
     }
 }

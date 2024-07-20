@@ -27,7 +27,7 @@ const submit = () =>{
                 <input type="password" v-model="form.password">
                 <small>{{ form.errors.password }}</small>
             </div>
-
+            
             <button type="submit" :disabled="form.processing">Submit</button>
         </form>
     </div>

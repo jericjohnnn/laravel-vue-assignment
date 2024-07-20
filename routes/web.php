@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Models\User;
@@ -12,6 +13,7 @@ Route::inertia('/blog', 'blog', ['blogs' => Blog::paginate()])->name('blog');
 
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/dashboard', function () {
         $user = Auth::user();
         return Inertia::render('dashboard', [
@@ -19,16 +21,11 @@ Route::middleware('auth')->group(function () {
         ]);
     })->name('dashboard');
 
-    // Route::delete('/dashboard/{blog}', function () {
-
-
-
-
-    // Route::inertia('/dashboard', 'dashboard', ['blogs' => Blog::paginate()])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::delete('/blogs/{blog}', [BlogController::class, 'deleteBlog'])->name('deleteBlog');
 });
-// ['blogs' => Blog::paginate()]
-// ['users' => User::paginate()]
+
 
 Route::middleware('guest')->group(function () {
     Route::inertia('/', 'index')->name('index');
