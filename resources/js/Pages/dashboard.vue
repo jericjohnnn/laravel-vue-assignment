@@ -2,6 +2,7 @@
 import navbar from "../Sections/navbar.vue"
 import Notification from "../Components/blogNotification.vue"
 import { Link, router, useForm, usePage } from "@inertiajs/vue3";
+import { ref } from 'vue';
 
 defineProps({
   blogs: Object,
@@ -46,6 +47,34 @@ function deleteBlog(blogId) {
 }
 
 
+const editingBlog = ref(null);
+
+function startEditing(blog) {
+  editingBlog.value = { ...blog };
+}
+
+
+const updateBlog = useForm({
+  title: '',
+  content: ''
+});
+
+
+function submitUpdate() {
+  updateBlog.patch(route('updateBlog', editingBlog.value.id), {
+    preserveState: false,
+    preserveScroll: true,
+    onSuccess: () => {
+      editingBlog.value = null;
+      // You might want to refresh your blogs data here
+    }
+  });
+}
+
+
+function cancelEdit() {
+  editingBlog.value = null;
+}
 
 </script>
 
@@ -64,7 +93,7 @@ function deleteBlog(blogId) {
             <th>title</th>
             <th>content</th>
             <th>created at</th>
-            <th>delete</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -74,15 +103,39 @@ function deleteBlog(blogId) {
             <td>{{ blog.content }}</td>
             <td>{{ blog.created_at }}</td>
             <td>
+              <button @click="startEditing(blog)">Edit</button>
               <button @click="deleteBlog(blog.id)">delete blog</button>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- NOTIFICATION -->
       <div v-if="$page.props.flash.blogCRUDnotif" class="alert">
         <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
       </div>
+
+
+
+<!-- Edit form -->
+<div v-if="editingBlog" class="edit-form">
+  <h3>Edit Blog</h3>
+  <form @submit.prevent="submitUpdate">
+    <div>
+      <label for="edit-title">Title</label>
+      <input id="edit-title" v-model="updateBlog.title" type="text" required />
+    </div>
+    <div>
+      <label for="edit-content">Content</label>
+      <textarea id="edit-content" v-model="updateBlog.content" required></textarea>
+    </div>
+    <button type="submit" :disabled="updateBlog.processing">Update</button>
+    <button type="button" @click="cancelEdit">Cancel</button>
+  </form>
+</div>
+
+
+
 
       <!-- CREATE BLOG -->
       <div>

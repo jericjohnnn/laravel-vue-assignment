@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::post('/dashboard', [BlogController::class, 'createBlog']);
+    Route::patch('/blogs/{blog}', [BlogController::class, 'updateBlog'])->name('updateBlog');
     Route::delete('/blogs/{blog}', [BlogController::class, 'deleteBlog'])->name('deleteBlog');
 });
 
