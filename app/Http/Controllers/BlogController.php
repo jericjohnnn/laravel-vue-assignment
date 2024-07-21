@@ -16,7 +16,6 @@ class BlogController extends Controller
         $blogs = Blog::with('user:id,name')
         ->select('id', 'title', 'content', 'user_id')
         ->paginate(12);
-        // ->paginate(10);
 
         // Pass data to Inertia
         return Inertia::render('blog', [

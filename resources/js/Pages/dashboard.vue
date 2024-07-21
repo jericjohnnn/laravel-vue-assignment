@@ -93,7 +93,7 @@ function deleteBlog(blogId) {
           </v-col>
         </v-row>
 
-        <v-snackbar v-model="$page.props.flash.blogCRUDnotif" :timeout="3000">
+        <v-snackbar v-model="$page.props.flash.blogCRUDnotif" :timeout="2000">
           <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
         </v-snackbar>
 
