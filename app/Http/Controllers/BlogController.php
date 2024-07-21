@@ -9,14 +9,39 @@ use Inertia\Inertia;
 class BlogController extends Controller
 {
     
+    public function createBlog(Request $request)
+    {
+        //VALIDATE
+        $fields = $request->validate([
+            'user_id' => ['required'],
+            'title' => ['required', 'max:255'],
+            'content' => ['required'],
+        ]);
+        Blog::create($fields);
+        //REDIRECT
+        // return redirect()->route('dashboard')->with('message', 'Successfully Created Blog');
+        return back()->with('message', 'Successfully Created Blog'); // Redirect with flash message
+    }
+
+
+
+    public function updateBlog(Request $request, Blog $blog)
+    {
+        $validated = $request->validate([
+            'title' => 'sometimes|required|max:255',
+            'content' => 'sometimes|required',
+        ]);
+    
+        $blog->update($validated);
+    
+        return back()->with('message', 'Blog updated successfully');
+    }
+
+
+
     public function deleteBlog(Blog $blog)
     {
         $blog->delete();
-        // return Inertia::share('flash', [
-        //     'message' => 'Blog deleted successfully!',
-        //     'type' => 'success',
-        // ]);
-        // return redirect()->route('dashboard')->with('deleted','Successfully Deleted');
-        return back()->with('deleted', 'Successfully Deleted'); // Redirect with flash message
+        return back()->with('message', 'Successfully Deleted Blog'); // Redirect with flash message
     }
 }

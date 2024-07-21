@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
 
     public function register(Request $request){
-        sleep(1);
+        // sleep(1);
         //VALIDATE
         $fields = $request->validate([
             'name' => ['required', 'max:255'],
@@ -27,7 +27,7 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        sleep(1);
+        // sleep(1);
         //VALIDATE
         $fields = $request->validate([
             'email' => ['required', 'email'],

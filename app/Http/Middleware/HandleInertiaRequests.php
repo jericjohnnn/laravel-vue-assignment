@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
                 : null,
 
             'flash' => [
-                'blogDeleted' => fn () => $request->session()->get('deleted')
+                'blogCRUDnotif' => fn () => $request->session()->get('message'),
             ],
 
         ]);

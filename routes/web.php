@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::post('/dashboard', [BlogController::class, 'createBlog']);
     Route::delete('/blogs/{blog}', [BlogController::class, 'deleteBlog'])->name('deleteBlog');
 });
 
