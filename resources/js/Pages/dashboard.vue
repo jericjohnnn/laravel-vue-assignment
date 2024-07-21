@@ -4,24 +4,21 @@ import Notification from "../Components/blogNotification.vue"
 import { Link, router, useForm, usePage } from "@inertiajs/vue3";
 import { ref } from 'vue';
 
+const page = usePage() // can use shared props(e.g auth.id)
+
 defineProps({
   blogs: Object,
 });
 
 
-
-
 //create blog
-const page = usePage()
-
 const createBlog = useForm({
   user_id: page.props.auth.user.id,
   title: null,
   content: null,
 });
 
-const submit = () => {
-  console.log('Submitting form', createBlog);
+const submitCreate = () => {
   createBlog.post(route('dashboard'), {
 
     preserveState: false,
@@ -29,36 +26,30 @@ const submit = () => {
 
     onSuccess: () => {
       createBlog.reset('title', 'content');
-      //
+      // can add more functionality
     },
     onError: (errors) => {
       console.error('Form submission errors:', errors);
-      // 
+      // can add more functionality
     }
   });
 };
 
-//delete blog
-function deleteBlog(blogId) {
-  router.delete(route('deleteBlog', blogId), {
-    preserveState: false,
-  });
-
-}
 
 
+// edit blog
 const editingBlog = ref(null);
 
 function startEditing(blog) {
   editingBlog.value = { ...blog };
+  updateBlog.title = blog.title;
+  updateBlog.content = blog.content;
 }
-
 
 const updateBlog = useForm({
   title: '',
-  content: ''
+  content: '',
 });
-
 
 function submitUpdate() {
   updateBlog.patch(route('updateBlog', editingBlog.value.id), {
@@ -66,6 +57,7 @@ function submitUpdate() {
     preserveScroll: true,
     onSuccess: () => {
       editingBlog.value = null;
+      updateBlog.reset();
       // You might want to refresh your blogs data here
     }
   });
@@ -74,8 +66,16 @@ function submitUpdate() {
 
 function cancelEdit() {
   editingBlog.value = null;
+  updateBlog.reset();
 }
 
+//delete blog
+function deleteBlog(blogId) {
+  router.delete(route('deleteBlog', blogId), {
+    preserveState: false,
+    preserveScroll: true,
+  });
+}
 </script>
 
 <template>
@@ -117,29 +117,29 @@ function cancelEdit() {
 
 
 
-<!-- Edit form -->
-<div v-if="editingBlog" class="edit-form">
-  <h3>Edit Blog</h3>
-  <form @submit.prevent="submitUpdate">
-    <div>
-      <label for="edit-title">Title</label>
-      <input id="edit-title" v-model="updateBlog.title" type="text" required />
-    </div>
-    <div>
-      <label for="edit-content">Content</label>
-      <textarea id="edit-content" v-model="updateBlog.content" required></textarea>
-    </div>
-    <button type="submit" :disabled="updateBlog.processing">Update</button>
-    <button type="button" @click="cancelEdit">Cancel</button>
-  </form>
-</div>
+      <!-- Edit form -->
+      <div v-if="editingBlog" class="edit-form">
+        <h3>Edit Blog</h3>
+        <form @submit.prevent="submitUpdate">
+          <div>
+            <label for="edit-title">Title</label>
+            <input id="edit-title" v-model="updateBlog.title" type="text" required />
+          </div>
+          <div>
+            <label for="edit-content">Content</label>
+            <textarea id="edit-content" v-model="updateBlog.content" required></textarea>
+          </div>
+          <button type="submit" :disabled="updateBlog.processing">Update</button>
+          <button type="button" @click="cancelEdit">Cancel</button>
+        </form>
+      </div>
 
 
 
 
       <!-- CREATE BLOG -->
       <div>
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submitCreate">
           <div hidden>
             <input type="hidden" v-model="createBlog.user_id" />
           </div>
