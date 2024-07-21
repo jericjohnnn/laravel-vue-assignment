@@ -11,6 +11,7 @@ defineProps({
 });
 
 
+
 //create blog
 const createBlog = useForm({
   user_id: page.props.auth.user.id,
@@ -58,16 +59,16 @@ function submitUpdate() {
     onSuccess: () => {
       editingBlog.value = null;
       updateBlog.reset();
-      // You might want to refresh your blogs data here
     }
   });
 }
-
 
 function cancelEdit() {
   editingBlog.value = null;
   updateBlog.reset();
 }
+
+
 
 //delete blog
 function deleteBlog(blogId) {
@@ -92,7 +93,6 @@ function deleteBlog(blogId) {
             <th>user id</th>
             <th>title</th>
             <th>content</th>
-            <th>created at</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -101,7 +101,6 @@ function deleteBlog(blogId) {
             <td>{{ blog.user_id }}</td>
             <td>{{ blog.title }}</td>
             <td>{{ blog.content }}</td>
-            <td>{{ blog.created_at }}</td>
             <td>
               <button @click="startEditing(blog)">Edit</button>
               <button @click="deleteBlog(blog.id)">delete blog</button>
@@ -109,6 +108,8 @@ function deleteBlog(blogId) {
           </tr>
         </tbody>
       </table>
+
+
 
       <!-- NOTIFICATION -->
       <div v-if="$page.props.flash.blogCRUDnotif" class="alert">
@@ -133,8 +134,6 @@ function deleteBlog(blogId) {
           <button type="button" @click="cancelEdit">Cancel</button>
         </form>
       </div>
-
-
 
 
       <!-- CREATE BLOG -->
