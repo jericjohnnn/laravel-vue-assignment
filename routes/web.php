@@ -9,7 +9,20 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::inertia('/blog', 'blog', ['blogs' => Blog::paginate()])->name('blog');
+
+// Route::inertia('/blog', 'blog', function () {
+//     return [
+//         'blogs' => Blog::with('user:id,name')
+//             ->select('id', 'user_id', 'title', 'content')
+//             ->paginate()_
+//     ];
+// })->name('blog');
+
+
+
+Route::get('/blog', [BlogController::class, 'showBlogs'])->name('blog');
+
+// Route::inertia('/blog', 'blog', ['blogs' => Blog::paginate()])->name('blog');
 
 
 Route::middleware('auth')->group(function () {

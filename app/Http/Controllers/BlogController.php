@@ -9,6 +9,24 @@ use Inertia\Inertia;
 class BlogController extends Controller
 {
     
+
+    public function showBlogs()
+    {
+        // Fetch blogs with their owners
+        $blogs = Blog::with('user:id,name')
+        ->select('id', 'title', 'content', 'user_id')
+        ->paginate(10);
+        // ->paginate(10);
+
+        // Pass data to Inertia
+        return Inertia::render('blog', [
+            'blogs' => $blogs,
+        ]);
+    }
+
+
+
+
     public function createBlog(Request $request)
     {
         //VALIDATE

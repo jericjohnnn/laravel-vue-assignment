@@ -40,11 +40,11 @@ function scrollToSection(sectionId) {
       <div v-if="!$page.props.auth.user" :class="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
         class="z-50 fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:w-auto md:bg-transparent md:shadow-none">
         <div class="flex flex-col h-full justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
-          <a  @click.prevent="scrollToSection('home')" href="#Home"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Home</a>
-          <a  @click.prevent="scrollToSection('services')" href="#Services"
+          <Link  @click.prevent="scrollToSection('home')" href="/"
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Home</Link>
+          <a  @click.prevent="scrollToSection('services')" href="/"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Services</a>
-          <a  @click.prevent="scrollToSection('contact')" href="#Contact"
+          <a  @click.prevent="scrollToSection('contact')" href="/"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Contact</a>
           <Link href="/blog"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Blog</Link>
