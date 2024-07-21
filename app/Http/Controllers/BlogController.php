@@ -15,7 +15,7 @@ class BlogController extends Controller
         // Fetch blogs with their owners
         $blogs = Blog::with('user:id,name')
         ->select('id', 'title', 'content', 'user_id')
-        ->paginate(10);
+        ->paginate(12);
         // ->paginate(10);
 
         // Pass data to Inertia

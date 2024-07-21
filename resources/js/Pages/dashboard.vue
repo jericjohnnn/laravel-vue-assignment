@@ -4,15 +4,12 @@ import Notification from "../Components/blogNotification.vue"
 import { Link, router, useForm, usePage } from "@inertiajs/vue3";
 import { ref } from 'vue';
 
-const page = usePage() // can use shared props(e.g auth.id)
+const page = usePage()
 
 defineProps({
   blogs: Object,
 });
 
-
-
-//create blog
 const createBlog = useForm({
   user_id: page.props.auth.user.id,
   title: null,
@@ -21,24 +18,17 @@ const createBlog = useForm({
 
 const submitCreate = () => {
   createBlog.post(route('dashboard'), {
-
     preserveState: false,
     preserveScroll: true,
-
     onSuccess: () => {
       createBlog.reset('title', 'content');
-      // can add more functionality
     },
     onError: (errors) => {
       console.error('Form submission errors:', errors);
-      // can add more functionality
     }
   });
 };
 
-
-
-// edit blog
 const editingBlog = ref(null);
 
 function startEditing(blog) {
@@ -68,9 +58,6 @@ function cancelEdit() {
   updateBlog.reset();
 }
 
-
-
-//delete blog
 function deleteBlog(blogId) {
   router.delete(route('deleteBlog', blogId), {
     preserveState: false,
@@ -80,81 +67,80 @@ function deleteBlog(blogId) {
 </script>
 
 <template>
-  <div>
-    <navbar></navbar>
-    <div class="bg-slate-400 h-64">
-      <h1 class="text-white">welcome to the dashboard {{ $page.props.auth.user.name }}</h1>
-    </div>
+  <v-app>
+    <navbar class="!static"></navbar>
+    
+    <v-main class="bg-blue">
 
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>user id</th>
-            <th>title</th>
-            <th>content</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="blog in blogs.data" :key="blog.id">
-            <td>{{ blog.user_id }}</td>
-            <td>{{ blog.title }}</td>
-            <td>{{ blog.content }}</td>
-            <td>
-              <button @click="startEditing(blog)">Edit</button>
-              <button @click="deleteBlog(blog.id)">delete blog</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-
-
-      <!-- NOTIFICATION -->
-      <div v-if="$page.props.flash.blogCRUDnotif" class="alert">
-        <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
+      <v-container>
+        <div class="my-10">
+        <h1 class="text-h4">Welcome to your Blogs {{ $page.props.auth.user.name }}</h1>
       </div>
 
+        <v-row>
+          <v-col v-for="blog in blogs.data" :key="blog.id" cols="12" sm="6" md="4">
+            <v-card>
+              <v-card-title>{{ blog.title }}</v-card-title>
+              <v-card-text>
+                <p>{{ blog.content }}</p>
+                
+              </v-card-text>
+              <v-card-actions>
+                <v-btn color="primary" @click="startEditing(blog)">Edit</v-btn>
+                <v-btn color="error" @click="deleteBlog(blog.id)">Delete</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        <v-snackbar v-model="$page.props.flash.blogCRUDnotif" :timeout="3000">
+          <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
+        </v-snackbar>
+
+        <v-dialog v-model="editingBlog" max-width="500px">
+          <v-card>
+            <v-card-title>Edit Blog</v-card-title>
+            <v-card-text>
+              <v-form @submit.prevent="submitUpdate">
+                <v-text-field v-model="updateBlog.title" label="Title" required></v-text-field>
+                <v-textarea v-model="updateBlog.content" label="Content" required></v-textarea>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" type="submit" :loading="updateBlog.processing">Update</v-btn>
+                  <v-btn color="error" @click="cancelEdit">Cancel</v-btn>
+                </v-card-actions>
+              </v-form>
+            </v-card-text>
+          </v-card>
+        </v-dialog>
+
+        <div class="flex  bg-white p-3 mt-4 justify-center gap-9">
+          <Link class=""
+            v-for="link in blogs.links"
+            :key="link.url"
+            :href="link.url"
+            :class="{ 'active': link.active }"
+            v-html="link.label"
+          />
+        </div>
 
 
-      <!-- Edit form -->
-      <div v-if="editingBlog" class="edit-form">
-        <h3>Edit Blog</h3>
-        <form @submit.prevent="submitUpdate">
-          <div>
-            <label for="edit-title">Title</label>
-            <input id="edit-title" v-model="updateBlog.title" type="text" required />
-          </div>
-          <div>
-            <label for="edit-content">Content</label>
-            <textarea id="edit-content" v-model="updateBlog.content" required></textarea>
-          </div>
-          <button type="submit" :disabled="updateBlog.processing">Update</button>
-          <button type="button" @click="cancelEdit">Cancel</button>
-        </form>
-      </div>
+        <v-card class="mt-4">
+          <v-card-title>Create New Blog</v-card-title>
+          <v-card-text>
+            <v-form @submit.prevent="submitCreate">
+              <input type="hidden" v-model="createBlog.user_id" />
+              <v-text-field v-model="createBlog.title" label="Title" required></v-text-field>
+              <v-textarea v-model="createBlog.content" label="Content" required></v-textarea>
+              <v-btn type="submit" color="primary" :loading="createBlog.processing" class="mt-2">Submit</v-btn>
+            </v-form>
+          </v-card-text>
+        </v-card>
+
+        
 
 
-      <!-- CREATE BLOG -->
-      <div>
-        <form @submit.prevent="submitCreate">
-          <div hidden>
-            <input type="hidden" v-model="createBlog.user_id" />
-          </div>
-          <div>
-            <label for="title">Title</label>
-            <input type="text" v-model="createBlog.title" required />
-          </div>
-          <div>
-            <label for="content">Content</label>
-            <textarea v-model="createBlog.content" required></textarea>
-          </div>
-          <button type="submit" :disabled="createBlog.processing">Submit</button>
-        </form>
-      </div>
-
-
-    </div>
-  </div>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
