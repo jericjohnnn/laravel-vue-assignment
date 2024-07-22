@@ -27,8 +27,6 @@
           </div>
 
 
-
-
           <div v-motion-pop-visible-once
             class="w-full mb-10 md:mb-0 mt-16 md:w-1/2 pl-0 md:pl-8 md:mt-0 text-justify leading-relaxed font-hind ">
             <div class="text-center md:text-start  mb-10">
@@ -116,11 +114,8 @@
               expert project management to ensure initiative success. Our approach focuses on clear communication,
               efficient resource use, and timely delivery.</p>
           </div>
-
         </div>
-
       </div>
-
     </div>
   </section>
 </template>

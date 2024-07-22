@@ -10,9 +10,7 @@ use Inertia\Inertia;
 
 
 
-
 Route::middleware('auth')->group(function () {
-
     Route::get('/dashboard', function () {
         $user = Auth::user();
         return Inertia::render('dashboard', [
@@ -32,11 +30,9 @@ Route::middleware('guest')->group(function () {
     Route::inertia('/', 'index')->name('index');
     Route::get('/blog', [BlogController::class, 'showBlogs'])->name('blog');
 
-
     Route::inertia('/register', 'Auth/register')->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 
     Route::inertia('/login', 'Auth/login')->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-
 });

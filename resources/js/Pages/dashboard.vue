@@ -69,14 +69,11 @@ function deleteBlog(blogId) {
 <template>
   <v-app>
     <navbar class="!static"></navbar>
-    
     <v-main class="bg-blue">
-
       <v-container>
         <div class="my-10">
         <h1 class="text-h4">Welcome to your Blogs {{ $page.props.auth.user.name }}</h1>
       </div>
-
         <v-row>
           <v-col v-for="blog in blogs.data" :key="blog.id" cols="12" sm="6" md="4">
             <v-card>
@@ -136,10 +133,6 @@ function deleteBlog(blogId) {
             </v-form>
           </v-card-text>
         </v-card>
-
-        
-
-
       </v-container>
     </v-main>
   </v-app>

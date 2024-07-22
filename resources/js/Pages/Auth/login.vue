@@ -1,6 +1,6 @@
 <script setup>
 import navbar from '../../Sections/navbar.vue';
-import { Link, router, useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
     email: null,

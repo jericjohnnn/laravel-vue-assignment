@@ -1,5 +1,5 @@
 <script setup>
-import { Link, router, useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import navbar from '../../Sections/navbar.vue';
 
 const form = useForm({
@@ -19,9 +19,7 @@ const submit = () => {
 <template>
     <div>
     <navbar class="!static"></navbar>
-
     <div class="bg-blue h-screen flex flex-col items-center">
-
     <v-container >
         <v-row justify="center bg-blue">
             <v-col cols="12" sm="8" md="6">

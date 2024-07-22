@@ -43,7 +43,6 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'blogCRUDnotif' => fn () => $request->session()->get('message'),
             ],
-
         ]);
     }
 }

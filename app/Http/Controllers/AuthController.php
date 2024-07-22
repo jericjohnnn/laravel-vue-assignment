@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+// ********
 
     public function register(Request $request){
-        // sleep(1);
         //VALIDATE
         $fields = $request->validate([
             'name' => ['required', 'max:255'],
@@ -23,11 +23,11 @@ class AuthController extends Controller
         Auth::login($user);
         //REDIRECT
         return redirect()->route('dashboard');
-        // dd($request);
     }
 
+// ********
+
     public function login(Request $request){
-        // sleep(1);
         //VALIDATE
         $fields = $request->validate([
             'email' => ['required', 'email'],
@@ -36,7 +36,6 @@ class AuthController extends Controller
 
         if(Auth::attempt($fields)){
             $request->session()->regenerate();
-
             return redirect()->route('dashboard');
         }
 
@@ -46,9 +45,10 @@ class AuthController extends Controller
 
     }
 
+// ********
 
     public function logout(Request $request){
-        Auth::logout();
+    Auth::logout();
  
     $request->session()->invalidate();
  
@@ -56,5 +56,4 @@ class AuthController extends Controller
  
     return redirect('/');
     }
-
 }

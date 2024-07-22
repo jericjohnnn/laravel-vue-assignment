@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
-    
+ // ********   
 
     public function showBlogs()
     {
@@ -23,8 +23,7 @@ class BlogController extends Controller
         ]);
     }
 
-
-
+// ********
 
     public function createBlog(Request $request)
     {
@@ -36,11 +35,10 @@ class BlogController extends Controller
         ]);
         Blog::create($fields);
         //REDIRECT
-        // return redirect()->route('dashboard')->with('message', 'Successfully Created Blog');
         return back()->with('message', 'Successfully Created Blog'); // Redirect with flash message
     }
 
-
+// ********
 
     public function updateBlog(Request $request, Blog $blog)
     {
@@ -48,13 +46,12 @@ class BlogController extends Controller
             'title' => 'sometimes|required|max:255',
             'content' => 'sometimes|required',
         ]);
-    
+
         $blog->update($validated);
-    
-        return back()->with('message', 'Blog updated successfully');
+        return back()->with('message', 'Blog updated successfully'); // Redirect with flash message
     }
 
-
+// ********
 
     public function deleteBlog(Blog $blog)
     {

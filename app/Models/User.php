@@ -21,8 +21,6 @@ class User extends Authenticatable
         return $this->hasMany(Blog::class);
     }
 
-
-
     protected $fillable = [
         'name',
         'email',
