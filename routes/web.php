@@ -1,34 +1,25 @@
 <?php
 
 use App\Http\Controllers\BlogController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
-use App\Models\User;
-use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        $user = Auth::user();
-        return Inertia::render('dashboard', [
-            'blogs' => Blog::where('user_id', $user->id)->paginate(5),
-        ]);
-    })->name('dashboard');
+    Route::get('/dashboard', [BlogController::class, 'showAuthenticatedBlogs'])->name('dashboard');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
     Route::post('/dashboard', [BlogController::class, 'createBlog']);
+
     Route::patch('/blogs/{blog}', [BlogController::class, 'updateBlog'])->name('updateBlog');
+    
     Route::delete('/blogs/{blog}', [BlogController::class, 'deleteBlog'])->name('deleteBlog');
 });
 
 
 Route::middleware('guest')->group(function () {
     Route::inertia('/', 'index')->name('index');
-    Route::get('/blog', [BlogController::class, 'showBlogs'])->name('blog');
+    Route::get('/blog', [BlogController::class, 'showAllBlogs'])->name('blog');
 
     Route::inertia('/register', 'Auth/register')->name('register');
     Route::post('/register', [AuthController::class, 'register']);

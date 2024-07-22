@@ -4,26 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class BlogController extends Controller
 {
- // ********   
 
-    public function showBlogs()
+    // ********   
+
+    public function showAuthenticatedBlogs()
     {
-        // Fetch blogs with their owners
-        $blogs = Blog::with('user:id,name')
-        ->select('id', 'title', 'content', 'user_id')
-        ->paginate(12);
+        $user = Auth::user();
 
-        // Pass data to Inertia
+        $blogs = Blog::with('user:id,name')
+            ->select('id', 'title', 'content', 'user_id')
+            ->where('user_id', $user->id)
+            ->paginate(12);
+
+        return Inertia::render('dashboard', [
+            'blogs' => $blogs ,
+        ]);
+    }
+
+    // ********   
+
+    public function showAllBlogs()
+    {
+        $blogs = Blog::with('user:id,name')
+            ->select('id', 'title', 'content', 'user_id')
+            ->paginate(12);
+
         return Inertia::render('blog', [
             'blogs' => $blogs,
         ]);
     }
 
-// ********
+    // ********
 
     public function createBlog(Request $request)
     {
@@ -34,11 +50,11 @@ class BlogController extends Controller
             'content' => ['required'],
         ]);
         Blog::create($fields);
-        //REDIRECT
+
         return back()->with('message', 'Successfully Created Blog'); // Redirect with flash message
     }
 
-// ********
+    // ********
 
     public function updateBlog(Request $request, Blog $blog)
     {
@@ -46,16 +62,17 @@ class BlogController extends Controller
             'title' => 'sometimes|required|max:255',
             'content' => 'sometimes|required',
         ]);
-
         $blog->update($validated);
-        return back()->with('message', 'Blog updated successfully'); // Redirect with flash message
+
+        return back()->with('message', 'Blog Updated Successfully'); // Redirect with flash message
     }
 
-// ********
+    // ********
 
     public function deleteBlog(Blog $blog)
     {
         $blog->delete();
+
         return back()->with('message', 'Successfully Deleted Blog'); // Redirect with flash message
     }
 }

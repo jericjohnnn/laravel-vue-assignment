@@ -4,6 +4,8 @@ import { Link } from '@inertiajs/vue3';
 
 const isMenuOpen = ref(false);
 
+
+
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
 }
@@ -40,34 +42,38 @@ function scrollToSection(sectionId) {
       <div v-if="!$page.props.auth.user" :class="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }"
         class="z-50 fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:transform-none md:flex md:w-auto md:bg-transparent md:shadow-none">
         <div class="flex flex-col h-full justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-8">
-          <Link  @click.prevent="scrollToSection('home')" href="/"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Home</Link>
-          <a  @click.prevent="scrollToSection('services')" href="/"
+          <Link @click.prevent="scrollToSection('home')" href="/"
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">
+          Home</Link>
+          <a v-if="$page.url !== '/blog'" @click.prevent="scrollToSection('services')" href="/"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Services</a>
-          <a  @click.prevent="scrollToSection('contact')" href="/"
+          <a v-if="$page.url !== '/blog'" @click.prevent="scrollToSection('contact')" href="/"
             class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Contact</a>
           <Link href="/blog"
-            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Blog</Link>
-           
+            class="block py-2 px-4 md:p-0 text-black lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">
+          Blog</Link>
+
           <!-- Login/Signup options (visible only in mobile menu) -->
           <div class="md:hidden">
             <a @click.prevent="scrollToSection('login')" href="#Login"
               class="block py-2 px-4 text-blue lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Login</a>
             <a @click.prevent="scrollToSection('signup')" href="#Signup"
-              class="block py-2 px-4 text-blue lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Sign Up</a>
+              class="block py-2 px-4 text-blue lg:hover:text-blue lg:transition font-medium font-montserrat lg:text-lg">Sign
+              Up</a>
           </div>
         </div>
       </div>
 
       <div v-if="$page.props.auth.user">
         <Link method="post" as="button" :href="route('logout')">Logout</Link>
-    </div>
+      </div>
       <!-- NAV LOGIN/SIGNUP (Desktop) -->
       <div v-else class="hidden md:flex space-x-4 items-center">
         <Link :href="route('login')"
           class="text-blue lg:hover:text-black lg:transition font-medium font-montserrat lg:text-lg">Login</Link>
         <Link :href="route('register')"
-          class="rounded-lg py-1 px-3 border-2 border-blue text-blue lg:hover:text-black lg:hover:border-black lg:transition font-medium font-montserrat lg:text-lg">Sign Up</Link>
+          class="rounded-lg py-1 px-3 border-2 border-blue text-blue lg:hover:text-black lg:hover:border-black lg:transition font-medium font-montserrat lg:text-lg">
+        Sign Up</Link>
       </div>
     </div>
   </nav>

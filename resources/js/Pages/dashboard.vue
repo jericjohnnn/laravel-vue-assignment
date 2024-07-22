@@ -29,10 +29,10 @@ const submitCreate = () => {
   });
 };
 
-const editingBlog = ref(null);
+const isEditingBlog = ref(null);
 
 function startEditing(blog) {
-  editingBlog.value = { ...blog };
+  isEditingBlog.value = { ...blog };
   updateBlog.title = blog.title;
   updateBlog.content = blog.content;
 }
@@ -43,18 +43,18 @@ const updateBlog = useForm({
 });
 
 function submitUpdate() {
-  updateBlog.patch(route('updateBlog', editingBlog.value.id), {
+  updateBlog.patch(route('updateBlog', isEditingBlog.value.id), {
     preserveState: false,
     preserveScroll: true,
     onSuccess: () => {
-      editingBlog.value = null;
+      isEditingBlog.value = null;
       updateBlog.reset();
     }
   });
 }
 
 function cancelEdit() {
-  editingBlog.value = null;
+  isEditingBlog.value = null;
   updateBlog.reset();
 }
 
@@ -77,10 +77,13 @@ function deleteBlog(blogId) {
         <v-row>
           <v-col v-for="blog in blogs.data" :key="blog.id" cols="12" sm="6" md="4">
             <v-card>
-              <v-card-title>{{ blog.title }}</v-card-title>
+              <v-card-title class="text-h5">{{ blog.title }}</v-card-title>
+              
               <v-card-text>
                 <p>{{ blog.content }}</p>
-                
+                <v-chip  color="primary" label>
+                  {{ blog.user.name }}
+                </v-chip>
               </v-card-text>
               <v-card-actions>
                 <v-btn color="primary" @click="startEditing(blog)">Edit</v-btn>
@@ -94,7 +97,7 @@ function deleteBlog(blogId) {
           <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
         </v-snackbar>
 
-        <v-dialog v-model="editingBlog" max-width="500px">
+        <v-dialog v-model="isEditingBlog" max-width="500px">
           <v-card>
             <v-card-title>Edit Blog</v-card-title>
             <v-card-text>
