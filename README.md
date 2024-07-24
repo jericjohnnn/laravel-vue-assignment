@@ -8,7 +8,6 @@
     <li>composer install<br></li>
     <li>npm install<br></li>
     <li>remove ".example" .env.example -> .env<br></li>
-    <li>replicate DB based from DB in the .env<br></li>
     <li>php artisan key:generate<br></li>
     <li>php artisan storage:link<br></li>
     <li>php artisan migrate<br></li>
