@@ -6,11 +6,20 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use App\BlogRepositoryInterface;
 
 class BlogController extends Controller
 {
 
     // ********   
+
+    // protected $blogRepository;
+
+    // public function __construct(BlogRepositoryInterface $blogRepository)
+    // {
+    //     $this->blogRepository = $blogRepository;
+    // }
+
 
     public function showAuthenticatedBlogs()
     {
@@ -30,6 +39,10 @@ class BlogController extends Controller
 
     public function showAllBlogs()
     {
+
+        // $post = $this->blogRepository->getPostById($id);
+        // return response()->json($post);
+
         $blogs = Blog::with('user:id,name')
             ->select('id', 'title', 'content', 'user_id')
             ->paginate(12);
