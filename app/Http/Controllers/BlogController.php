@@ -72,8 +72,8 @@ class BlogController extends Controller
     public function updateBlog(Request $request, Blog $blog)
     {
         $validated = $request->validate([
-            'title' => 'sometimes|required|max:255',
-            'content' => 'sometimes|required',
+            'title' => 'required|max:255',
+            'content' => 'sometimes',
         ]);
         $blog->update($validated);
 

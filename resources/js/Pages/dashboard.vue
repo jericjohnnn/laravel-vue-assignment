@@ -74,11 +74,11 @@ function deleteBlog(blogId) {
         <div class="my-10">
         <h1 class="text-h4">Welcome to your Blogs {{ $page.props.auth.user.name }}</h1>
       </div>
+      <!-- ALL BLOGS OF USER -->
         <v-row>
           <v-col v-for="blog in blogs.data" :key="blog.id" cols="12" sm="6" md="4">
             <v-card>
               <v-card-title class="text-h5">{{ blog.title }}</v-card-title>
-              
               <v-card-text>
                 <p>{{ blog.content }}</p>
                 <v-chip  color="primary" label>
@@ -93,10 +93,12 @@ function deleteBlog(blogId) {
           </v-col>
         </v-row>
 
+        <!-- BLOG UPDATE/CREATE NOTIF -->
         <v-snackbar v-model="$page.props.flash.blogCRUDnotif" :timeout="2000">
           <Notification :message="$page.props.flash.blogCRUDnotif"></Notification>
         </v-snackbar>
 
+        <!-- POP UP EDIT MODAL -->
         <v-dialog v-model="isEditingBlog" max-width="500px">
           <v-card>
             <v-card-title>Edit Blog</v-card-title>
@@ -114,17 +116,18 @@ function deleteBlog(blogId) {
           </v-card>
         </v-dialog>
 
+        <!-- PAGINATION -->
         <div class="flex  bg-white p-3 mt-4 justify-center gap-9">
-          <Link class=""
+          <Link
+            v-html="link.label"
             v-for="link in blogs.links"
             :key="link.url"
             :href="link.url"
             :class="{ 'active': link.active }"
-            v-html="link.label"
           />
         </div>
 
-
+        <!-- CREATE BLOG CARD -->
         <v-card class="mt-4">
           <v-card-title>Create New Blog</v-card-title>
           <v-card-text>
@@ -136,6 +139,7 @@ function deleteBlog(blogId) {
             </v-form>
           </v-card-text>
         </v-card>
+
       </v-container>
     </v-main>
   </v-app>
